@@ -1,0 +1,12 @@
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\bin\Debug\ClinicaSePrice.exe.config
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\bin\Debug\ClinicaSePrice.exe
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\bin\Debug\ClinicaSePrice.pdb
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\obj\Debug\ClinicaSePrice.csproj.AssemblyReference.cache
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\obj\Debug\ClinicaSePrice.Properties.Resources.resources
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\obj\Debug\ClinicaSePrice.csproj.GenerateResource.cache
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\obj\Debug\ClinicaSePrice.csproj.CoreCompileInputs.cache
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\obj\Debug\ClinicaSePrice.exe
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\obj\Debug\ClinicaSePrice.pdb
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\obj\Debug\ClinicaSePrice.exe.config
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\obj\Debug\ClinicaSePrice.Login.resources
+D:\Proyecto pp2\ClinicaSePrice\ClinicaSePrice\obj\Debug\ClinicaSePrice.MenuPrincipal.resources
