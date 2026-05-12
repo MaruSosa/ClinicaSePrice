@@ -31,8 +31,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.contenedorGrillaProfesionales = new System.Windows.Forms.Panel();
             this.dgvProfesionales = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            this.contenedorGrillaProfesionales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,37 +68,36 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 60);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // contenedorGrillaProfesionales
+            // 
+            this.contenedorGrillaProfesionales.Controls.Add(this.dgvProfesionales);
+            this.contenedorGrillaProfesionales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contenedorGrillaProfesionales.Location = new System.Drawing.Point(0, 90);
+            this.contenedorGrillaProfesionales.Name = "contenedorGrillaProfesionales";
+            this.contenedorGrillaProfesionales.Size = new System.Drawing.Size(800, 360);
+            this.contenedorGrillaProfesionales.TabIndex = 3;
+            // 
             // dgvProfesionales
             // 
-            this.dgvProfesionales.AllowUserToAddRows = false;
-            this.dgvProfesionales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProfesionales.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProfesionales.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvProfesionales.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvProfesionales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProfesionales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfesionales.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvProfesionales.EnableHeadersVisualStyles = false;
-            this.dgvProfesionales.Location = new System.Drawing.Point(0, 100);
+            this.dgvProfesionales.Location = new System.Drawing.Point(253, 120);
             this.dgvProfesionales.Name = "dgvProfesionales";
-            this.dgvProfesionales.ReadOnly = true;
-            this.dgvProfesionales.RowHeadersVisible = false;
-            this.dgvProfesionales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProfesionales.Size = new System.Drawing.Size(800, 350);
-            this.dgvProfesionales.TabIndex = 3;
+            this.dgvProfesionales.Size = new System.Drawing.Size(240, 150);
+            this.dgvProfesionales.TabIndex = 0;
             // 
             // Profesionales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvProfesionales);
+            this.Controls.Add(this.contenedorGrillaProfesionales);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -104,6 +105,7 @@
             this.Text = "Profesionales";
             this.Load += new System.EventHandler(this.Profesionales_Load);
             this.panel1.ResumeLayout(false);
+            this.contenedorGrillaProfesionales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).EndInit();
             this.ResumeLayout(false);
 
@@ -113,6 +115,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel contenedorGrillaProfesionales;
         private System.Windows.Forms.DataGridView dgvProfesionales;
     }
 }

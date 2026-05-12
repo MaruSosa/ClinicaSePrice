@@ -15,7 +15,12 @@ namespace ClinicaSePrice
             InitializeComponent();
             EstiloTabla();
             dgvProfesionales.CellClick += dgvProfesionales_CellClick;
-        
+            dgvProfesionales.Dock = DockStyle.Fill;
+            contenedorGrillaProfesionales.Dock = DockStyle.Fill;
+            contenedorGrillaProfesionales.Padding = new Padding(15);
+            contenedorGrillaProfesionales.BackColor = Color.White;
+
+
         }
 
         private void Profesionales_Load(object sender, EventArgs e)
@@ -72,27 +77,24 @@ namespace ClinicaSePrice
                 dgvProfesionales.Columns.Add(btnEliminar);
             }
         }
-
+        
         private void EstiloTabla()
         {
             dgvProfesionales.EnableHeadersVisualStyles = false;
+            
+            dgvProfesionales.BorderStyle = BorderStyle.None;
+            dgvProfesionales.BackgroundColor = Color.White;
+            dgvProfesionales.GridColor = Color.FromArgb(240, 240, 240); // Gris muy claro
 
-            dgvProfesionales.ColumnHeadersDefaultCellStyle.BackColor =
-                Color.FromArgb(13, 43, 82);
+            dgvProfesionales.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(26, 50, 99);
+            dgvProfesionales.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvProfesionales.ColumnHeadersHeight = 40;
+            dgvProfesionales.EnableHeadersVisualStyles = false;
 
-            dgvProfesionales.ColumnHeadersDefaultCellStyle.ForeColor =
-                Color.White;
-
-            dgvProfesionales.ColumnHeadersDefaultCellStyle.Font =
-                new Font("Segoe UI", 11, FontStyle.Bold);
-
-            dgvProfesionales.DefaultCellStyle.Font =
-                new Font("Segoe UI", 10);
-
+            // Filas limpias
             dgvProfesionales.RowTemplate.Height = 35;
-
-            dgvProfesionales.AlternatingRowsDefaultCellStyle.BackColor =
-                Color.FromArgb(245, 245, 245);
+            dgvProfesionales.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvProfesionales.BackgroundColor = Color.FromArgb(230, 240, 250); // Azul suave al seleccionar 
         }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -115,5 +117,11 @@ namespace ClinicaSePrice
                 MessageBox.Show("Editar profesional");
             }
         }
+
+        private void contenedorGrillaProfesionales_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }
