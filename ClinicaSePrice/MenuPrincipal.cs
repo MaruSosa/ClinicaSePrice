@@ -62,7 +62,8 @@ namespace ClinicaSePrice
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
+            Profesionales frm = new Profesionales();
+            frm.Show();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -75,7 +76,7 @@ namespace ClinicaSePrice
                 btnTurnos.Text = "";
                 btnAsistencias.Text = "";
                 btnReportes.Text = "";
-                btnProfesionales.Text = "";
+                button2.Text = "";
                 btnOS.Text = "";
                 btnCerrarSesion.Text = "";
                 btnInsumos.Text = "";
@@ -88,7 +89,7 @@ namespace ClinicaSePrice
                 btnTurnos.Text = "Turnos";
                 btnAsistencias.Text = "Asistencias";
                 btnReportes.Text = "Reportes";
-                btnProfesionales.Text = "Profesionales";
+                button2.Text = "Profesionales";
                 btnOS.Text = "Obras Sociales";
                 btnCerrarSesion.Text = "Cerrar Sesión";
                 btnInsumos.Text = "Insumos";
