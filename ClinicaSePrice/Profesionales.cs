@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace ClinicaSePrice
@@ -123,5 +124,41 @@ namespace ClinicaSePrice
 
         }
 
+        private void panelBusqueda_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            float borderRadius = 20f; // Ajusta qué tan redondo lo quieres
+
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                // Definimos las esquinas redondeadas
+                path.AddArc(0, 0, borderRadius, borderRadius, 180, 90);
+                path.AddArc(panel.Width - borderRadius, 0, borderRadius, borderRadius, 270, 90);
+                path.AddArc(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius, 0, 90);
+                path.AddArc(0, panel.Height - borderRadius, borderRadius, borderRadius, 90, 90);
+                path.CloseAllFigures();
+
+                // Aplicamos la región al panel para que el fondo sea redondo
+                panel.Region = new Region(path);
+
+                // Opcional: Dibujar un borde suave si quieres que resalte
+                using (Pen pen = new Pen(Color.FromArgb(220, 220, 220), 1))
+                {
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
