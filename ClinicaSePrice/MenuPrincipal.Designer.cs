@@ -41,18 +41,21 @@
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.panelSuperior = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.lbFecha = new System.Windows.Forms.Label();
-            this.lbHora = new System.Windows.Forms.Label();
-            this.panelControlador = new System.Windows.Forms.Panel();
+            this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.panelControlador = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lbHora = new System.Windows.Forms.Label();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelIquierda = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -70,12 +73,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.panelSuperior.SuspendLayout();
-            this.panelControlador.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panelControlador.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panelIquierda.SuspendLayout();
@@ -247,7 +249,8 @@
             // panelSuperior
             // 
             this.panelSuperior.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panelSuperior.Controls.Add(this.label1);
+            this.panelSuperior.Controls.Add(this.btnMinimizar);
+            this.panelSuperior.Controls.Add(this.btnMaximizar);
             this.panelSuperior.Controls.Add(this.btnMenu);
             this.panelSuperior.Controls.Add(this.btnCerrar);
             this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
@@ -257,17 +260,39 @@
             this.panelSuperior.TabIndex = 1;
             this.panelSuperior.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSuperior_Paint);
             // 
-            // label1
+            // btnMinimizar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(51, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 21);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Inicio";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.btnMinimizar.Location = new System.Drawing.Point(436, 9);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(45, 40);
+            this.btnMinimizar.TabIndex = 7;
+            this.btnMinimizar.Text = "-";
+            this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaximizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.btnMaximizar.Location = new System.Drawing.Point(481, 9);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(45, 40);
+            this.btnMaximizar.TabIndex = 6;
+            this.btnMaximizar.Text = "🗖";
+            this.btnMaximizar.UseVisualStyleBackColor = false;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
             // 
             // btnMenu
             // 
@@ -288,11 +313,11 @@
             // btnCerrar
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.btnCerrar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
             this.btnCerrar.Location = new System.Drawing.Point(526, 9);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(0);
             this.btnCerrar.Name = "btnCerrar";
@@ -302,40 +327,11 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
-            // lbFecha
+            // timerHora
             // 
-            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFecha.AutoSize = true;
-            this.lbFecha.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbFecha.Location = new System.Drawing.Point(381, 14);
-            this.lbFecha.Name = "lbFecha";
-            this.lbFecha.Size = new System.Drawing.Size(34, 13);
-            this.lbFecha.TabIndex = 4;
-            this.lbFecha.Text = "fecha";
-            // 
-            // lbHora
-            // 
-            this.lbHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbHora.AutoSize = true;
-            this.lbHora.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbHora.Location = new System.Drawing.Point(514, 14);
-            this.lbHora.Name = "lbHora";
-            this.lbHora.Size = new System.Drawing.Size(34, 13);
-            this.lbHora.TabIndex = 3;
-            this.lbHora.Text = "00:00";
-            this.lbHora.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // panelControlador
-            // 
-            this.panelControlador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
-            this.panelControlador.Controls.Add(this.panel5);
-            this.panelControlador.Controls.Add(this.panel2);
-            this.panelControlador.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlador.Location = new System.Drawing.Point(220, 60);
-            this.panelControlador.Name = "panelControlador";
-            this.panelControlador.Size = new System.Drawing.Size(580, 454);
-            this.panelControlador.TabIndex = 2;
-            this.panelControlador.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControlador_Paint);
+            this.timerHora.Enabled = true;
+            this.timerHora.Interval = 1000;
+            this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
             // panel5
             // 
@@ -382,6 +378,18 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Avisos y Recordatorios";
             // 
+            // panelControlador
+            // 
+            this.panelControlador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.panelControlador.Controls.Add(this.panel5);
+            this.panelControlador.Controls.Add(this.panel2);
+            this.panelControlador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControlador.Location = new System.Drawing.Point(220, 60);
+            this.panelControlador.Name = "panelControlador";
+            this.panelControlador.Size = new System.Drawing.Size(580, 454);
+            this.panelControlador.TabIndex = 2;
+            this.panelControlador.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControlador_Paint);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
@@ -398,11 +406,47 @@
             this.panel7.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.panel7.Controls.Add(this.lbHora);
             this.panel7.Controls.Add(this.lbFecha);
+            this.panel7.Controls.Add(this.label1);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(580, 38);
             this.panel7.TabIndex = 2;
+            // 
+            // lbHora
+            // 
+            this.lbHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbHora.AutoSize = true;
+            this.lbHora.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbHora.Location = new System.Drawing.Point(514, 14);
+            this.lbHora.Name = "lbHora";
+            this.lbHora.Size = new System.Drawing.Size(34, 13);
+            this.lbHora.TabIndex = 3;
+            this.lbHora.Text = "00:00";
+            this.lbHora.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbFecha
+            // 
+            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFecha.AutoSize = true;
+            this.lbFecha.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbFecha.Location = new System.Drawing.Point(381, 14);
+            this.lbFecha.Name = "lbFecha";
+            this.lbFecha.Size = new System.Drawing.Size(34, 13);
+            this.lbFecha.TabIndex = 4;
+            this.lbFecha.Text = "fecha";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(57, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 21);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Inicio";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panelIquierda
             // 
@@ -589,12 +633,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "18";
             // 
-            // timerHora
-            // 
-            this.timerHora.Enabled = true;
-            this.timerHora.Interval = 1000;
-            this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
-            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -612,10 +650,9 @@
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.panelSuperior.ResumeLayout(false);
-            this.panelSuperior.PerformLayout();
-            this.panelControlador.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panelControlador.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -640,7 +677,6 @@
 
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelSuperior;
-        private System.Windows.Forms.Panel panelControlador;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Button btnInicio;
@@ -651,15 +687,20 @@
         private System.Windows.Forms.Button btnOS;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label lbHora;
-        private System.Windows.Forms.Label lbFecha;
         private System.Windows.Forms.Timer timerHora;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnMinimizar;
+        private System.Windows.Forms.Button btnMaximizar;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panelControlador;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label lbHora;
+        private System.Windows.Forms.Label lbFecha;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelIquierda;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label4;
@@ -677,7 +718,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnMenu;
-        private System.Windows.Forms.Panel panel7;
     }
 }

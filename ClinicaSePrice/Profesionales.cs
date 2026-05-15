@@ -16,6 +16,40 @@ namespace ClinicaSePrice
             InitializeComponent();
 
             btnMaximizar.Click += btnMaximizar_Click;
+            btnMinimizar.Click += btnMinimizar_Click;
+
+            CargarEspecialidades();
+
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.FlatAppearance.BorderSize = 0;
+            btnBuscar.BackColor = Color.FromArgb(20, 45, 90);
+            btnBuscar.ForeColor = Color.White;
+            btnBuscar.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnBuscar.Width = 110;
+            btnBuscar.Height = 40;
+            btnBuscar.Cursor = Cursors.Hand;
+            
+            txtBuscar.Text = "Ingrese nombre";
+            txtBuscar.Height = 40;
+            txtBuscar.Width = 120;
+            txtBuscar.ForeColor = Color.Gray;
+            txtBuscar.Enter += (s, e) =>
+            {
+                if (txtBuscar.Text == "Ingrese nombre")
+                {
+                    txtBuscar.Text = "";
+                    txtBuscar.ForeColor = Color.Black;
+                }
+            };
+
+            txtBuscar.Leave += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+                {
+                    txtBuscar.Text = "Ingrese nombre";
+                    txtBuscar.ForeColor = Color.Gray;
+                }
+            };
 
             EstiloTabla();
             dgvProfesionales.CellClick += dgvProfesionales_CellClick;
@@ -33,69 +67,72 @@ namespace ClinicaSePrice
         {
             MySqlConnection conexion = cn.conectar();
 
-            string consulta = "SELECT * FROM profesionales";
+            string consulta = @"
+                SELECT 
+                    p.id_profesional,
+                    p.nombre,
+                    p.apellido,
+                    e.nombre_especialidad AS especialidad
+                FROM profesionales p
+                INNER JOIN especialidades e 
+                    ON p.id_especialidad = e.id_especialidad";
 
-            MySqlDataAdapter adaptador =
-                new MySqlDataAdapter(consulta, conexion);
-
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(consulta, conexion);
             DataTable tabla = new DataTable();
-
             adaptador.Fill(tabla);
 
+            dgvProfesionales.Columns.Clear(); // importante para evitar duplicados
             dgvProfesionales.DataSource = tabla;
+
+            // BOTÓN EDITAR
             if (!dgvProfesionales.Columns.Contains("Editar"))
             {
-                DataGridViewButtonColumn btnEditar =
-                    new DataGridViewButtonColumn();
-
+                DataGridViewButtonColumn btnEditar = new DataGridViewButtonColumn();
                 btnEditar.Name = "Editar";
                 btnEditar.HeaderText = "Editar";
                 btnEditar.Text = "✏";
                 btnEditar.UseColumnTextForButtonValue = true;
                 btnEditar.DefaultCellStyle.BackColor = Color.LightGreen;
                 btnEditar.DefaultCellStyle.ForeColor = Color.White;
-                btnEditar.DefaultCellStyle.SelectionBackColor = Color.RoyalBlue;
                 btnEditar.FlatStyle = FlatStyle.Flat;
 
                 dgvProfesionales.Columns.Add(btnEditar);
             }
 
-            // BOTON ELIMINAR
+            // BOTÓN ELIMINAR
             if (!dgvProfesionales.Columns.Contains("Eliminar"))
             {
-                DataGridViewButtonColumn btnEliminar =
-                    new DataGridViewButtonColumn();
-
+                DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
                 btnEliminar.Name = "Eliminar";
                 btnEliminar.HeaderText = "Eliminar";
                 btnEliminar.Text = "🗑";
                 btnEliminar.UseColumnTextForButtonValue = true;
                 btnEliminar.DefaultCellStyle.BackColor = Color.IndianRed;
                 btnEliminar.DefaultCellStyle.ForeColor = Color.White;
-                btnEliminar.DefaultCellStyle.SelectionBackColor = Color.Firebrick;
                 btnEliminar.FlatStyle = FlatStyle.Flat;
 
                 dgvProfesionales.Columns.Add(btnEliminar);
             }
         }
-        
+
+
         private void EstiloTabla()
         {
             dgvProfesionales.EnableHeadersVisualStyles = false;
             
             dgvProfesionales.BorderStyle = BorderStyle.None;
             dgvProfesionales.BackgroundColor = Color.White;
-            dgvProfesionales.GridColor = Color.FromArgb(240, 240, 240); // Gris muy claro
+            dgvProfesionales.GridColor = Color.FromArgb(240, 240, 240); 
 
             dgvProfesionales.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(26, 50, 99);
             dgvProfesionales.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvProfesionales.ColumnHeadersHeight = 40;
             dgvProfesionales.EnableHeadersVisualStyles = false;
 
-            // Filas limpias
+          
             dgvProfesionales.RowTemplate.Height = 35;
             dgvProfesionales.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvProfesionales.BackgroundColor = Color.FromArgb(230, 240, 250); // Azul suave al seleccionar 
+            dgvProfesionales.BackgroundColor = Color.FromArgb(230, 240, 250); 
             btnMaximizar.FlatStyle = FlatStyle.Flat;
             btnMaximizar.FlatAppearance.BorderSize = 0;
         }
@@ -113,6 +150,10 @@ namespace ClinicaSePrice
             {
                 this.WindowState = FormWindowState.Normal;
             }
+        }
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -178,6 +219,42 @@ namespace ClinicaSePrice
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        // metodo para traer las especialidades de la base de datos
+        private void CargarEspecialidades()
+        {
+            try
+            {
+                MySqlConnection conexion = cn.conectar();
+
+                conexion.Open();
+
+                string query = "SELECT id_especialidad, nombre_especialidad FROM especialidades";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                cmbEspecialidad.DataSource = dt;
+
+                cmbEspecialidad.DisplayMember = "nombre_especialidad";
+
+                cmbEspecialidad.ValueMember = "id_especialidad";
+
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
        
     }
 }

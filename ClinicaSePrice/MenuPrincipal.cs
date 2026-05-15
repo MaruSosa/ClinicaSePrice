@@ -13,6 +13,7 @@ namespace ClinicaSePrice
 {
     public partial class MenuPrincipal : Form
     {
+        
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
        (
@@ -27,7 +28,12 @@ namespace ClinicaSePrice
         public MenuPrincipal()
         {
             InitializeComponent();
-            this.Load += MenuPrincipal_Load;
+            btnMaximizar.Click += btnMaximizar_Click;
+            btnMinimizar.Click += btnMinimizar_Click;
+            this.WindowState = FormWindowState.Normal;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            btnMaximizar.Click += btnMaximizar_Click;
+            btnMinimizar.Click += btnMinimizar_Click;
         }
 
         private void panelSuperior_Paint(object sender, PaintEventArgs e)
@@ -54,7 +60,21 @@ namespace ClinicaSePrice
         {
 
         }
-
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
         private void btnCerrar_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
@@ -138,12 +158,10 @@ namespace ClinicaSePrice
         }
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+
             panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 20, 20));
-
             panel4.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel4.Width, panel4.Height, 20, 20));
-
             panel3.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 20, 20));
-
             panel6.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel6.Width, panel6.Height, 20, 20));
         }
 
@@ -151,5 +169,7 @@ namespace ClinicaSePrice
         {
 
         }
+
+       
     }
 }
