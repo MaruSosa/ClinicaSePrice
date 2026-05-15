@@ -134,11 +134,13 @@ namespace ClinicaSePrice
             dgvProfesionales.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvProfesionales.BackgroundColor = Color.FromArgb(230, 240, 250); 
             btnMaximizar.FlatStyle = FlatStyle.Flat;
+            btnMinimizar.Text = "-";
+            btnMinimizar.TextAlign = ContentAlignment.MiddleCenter;
             btnMaximizar.FlatAppearance.BorderSize = 0;
         }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
         private void btnMaximizar_Click(object sender, EventArgs e)
         {

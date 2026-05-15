@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panelBusqueda = new System.Windows.Forms.Panel();
+            this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -44,9 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.contenedorGrillaProfesionales = new System.Windows.Forms.Panel();
             this.dgvProfesionales = new System.Windows.Forms.DataGridView();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
-            this.btnMinimizar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelBusqueda.SuspendLayout();
@@ -67,6 +67,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 30);
             this.panel1.TabIndex = 1;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.btnMinimizar.ForeColor = System.Drawing.Color.White;
+            this.btnMinimizar.Location = new System.Drawing.Point(671, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(45, 27);
+            this.btnMinimizar.TabIndex = 4;
+            this.btnMinimizar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnMaximizar
             // 
@@ -146,6 +163,21 @@
             this.panelBusqueda.Size = new System.Drawing.Size(776, 75);
             this.panelBusqueda.TabIndex = 1;
             this.panelBusqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBusqueda_Paint);
+            // 
+            // cmbEspecialidad
+            // 
+            this.cmbEspecialidad.FormattingEnabled = true;
+            this.cmbEspecialidad.Location = new System.Drawing.Point(433, 36);
+            this.cmbEspecialidad.Name = "cmbEspecialidad";
+            this.cmbEspecialidad.Size = new System.Drawing.Size(121, 21);
+            this.cmbEspecialidad.TabIndex = 8;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(225, 37);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(100, 20);
+            this.txtBuscar.TabIndex = 7;
             // 
             // label5
             // 
@@ -247,39 +279,6 @@
             this.dgvProfesionales.Name = "dgvProfesionales";
             this.dgvProfesionales.Size = new System.Drawing.Size(800, 302);
             this.dgvProfesionales.TabIndex = 1;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(225, 37);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(100, 20);
-            this.txtBuscar.TabIndex = 7;
-            // 
-            // cmbEspecialidad
-            // 
-            this.cmbEspecialidad.FormattingEnabled = true;
-            this.cmbEspecialidad.Location = new System.Drawing.Point(433, 36);
-            this.cmbEspecialidad.Name = "cmbEspecialidad";
-            this.cmbEspecialidad.Size = new System.Drawing.Size(121, 21);
-            this.cmbEspecialidad.TabIndex = 8;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.btnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.btnMinimizar.Location = new System.Drawing.Point(671, 3);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(45, 27);
-            this.btnMinimizar.TabIndex = 4;
-            this.btnMinimizar.Text = "-";
-            this.btnMinimizar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMinimizar.UseVisualStyleBackColor = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // Profesionales
             // 

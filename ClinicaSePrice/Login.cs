@@ -1,12 +1,16 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Data;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace ClinicaSePrice
 {
+
     public partial class Login : Form
     {
+        Conexion cn = new Conexion();
         // Bordes redondeados
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -34,19 +38,19 @@ namespace ClinicaSePrice
             ));
 
             // BOTÓN LOGIN
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor =
+            btnIngresar.FlatStyle = FlatStyle.Flat;
+            btnIngresar.FlatAppearance.BorderSize = 0;
+            btnIngresar.FlatAppearance.MouseOverBackColor =
                 Color.FromArgb(80, 150, 255);
 
-            button1.BackColor = Color.FromArgb(26, 50,99);
-            button1.ForeColor = Color.White;
-            button1.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            btnIngresar.BackColor = Color.FromArgb(26, 50,99);
+            btnIngresar.ForeColor = Color.White;
+            btnIngresar.Font = new Font("Segoe UI", 11, FontStyle.Bold);
 
             // Bordes redondeados botón login
-            button1.Region = Region.FromHrgn(CreateRoundRectRgn
+            btnIngresar.Region = Region.FromHrgn(CreateRoundRectRgn
             (
-                0, 0, button1.Width, button1.Height, 20, 20
+                0, 0, btnIngresar.Width, btnIngresar.Height, 20, 20
             ));
 
             // BOTÓN CERRAR
@@ -55,7 +59,59 @@ namespace ClinicaSePrice
             btnCerrar.FlatAppearance.MouseOverBackColor = Color.Red;
 
         }
+        public class Conexion
+        {
+            private MySqlConnection conexion = new MySqlConnection(
+                "server=localhost;port=3306;database=clinica_seprice;uid=root;pwd=root;"
+            );
 
+            public MySqlConnection Conectar()
+            {
+                if (conexion.State == ConnectionState.Closed)
+                    conexion.Open();
+
+                return conexion;
+            }
+
+            public void Desconectar()
+            {
+                if (conexion.State == ConnectionState.Open)
+                    conexion.Close();
+            }
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Click detectado");
+            try
+            {
+                string query = "SELECT * FROM usuarios WHERE usuario=@usuario AND password=@password";
+
+                MySqlCommand cmd = new MySqlCommand(query, cn.Conectar());
+
+                cmd.Parameters.AddWithValue("@usuario", txtUsuario.Text);
+                cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    this.Hide();
+                    MenuPrincipal menu = new MenuPrincipal();
+                    menu.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos");
+                }
+
+                cn.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -91,5 +147,11 @@ namespace ClinicaSePrice
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
