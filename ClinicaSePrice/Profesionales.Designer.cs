@@ -31,32 +31,34 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panelBusqueda = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Todas = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.contenedorGrillaProfesionales = new System.Windows.Forms.Panel();
             this.dgvProfesionales = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panelBusqueda = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Todas = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMaximizar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelBusqueda.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contenedorGrillaProfesionales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panelBusqueda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(56)))), ((int)(((byte)(99)))));
+            this.panel1.Controls.Add(this.btnMaximizar);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -90,38 +92,23 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 189);
+            this.panel2.Size = new System.Drawing.Size(800, 199);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // contenedorGrillaProfesionales
+            // button2
             // 
-            this.contenedorGrillaProfesionales.Controls.Add(this.dgvProfesionales);
-            this.contenedorGrillaProfesionales.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contenedorGrillaProfesionales.Location = new System.Drawing.Point(0, 219);
-            this.contenedorGrillaProfesionales.Name = "contenedorGrillaProfesionales";
-            this.contenedorGrillaProfesionales.Size = new System.Drawing.Size(800, 231);
-            this.contenedorGrillaProfesionales.TabIndex = 3;
-            // 
-            // dgvProfesionales
-            // 
-            this.dgvProfesionales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfesionales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvProfesionales.Location = new System.Drawing.Point(0, 0);
-            this.dgvProfesionales.Name = "dgvProfesionales";
-            this.dgvProfesionales.Size = new System.Drawing.Size(800, 242);
-            this.dgvProfesionales.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(800, 60);
-            this.panel3.TabIndex = 0;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(642, 149);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(146, 36);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "+ Nuevo Profesional";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // panelBusqueda
             // 
@@ -141,52 +128,35 @@
             this.panelBusqueda.TabIndex = 1;
             this.panelBusqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBusqueda_Paint);
             // 
-            // label1
+            // label5
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(76, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Profesionales";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(524, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 21);
+            this.label5.TabIndex = 6;
             // 
-            // label2
+            // Todas
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(118, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 21);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Busqueda Profesional";
+            this.Todas.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Todas.FormattingEnabled = true;
+            this.Todas.ItemHeight = 17;
+            this.Todas.Location = new System.Drawing.Point(432, 34);
+            this.Todas.Name = "Todas";
+            this.Todas.Size = new System.Drawing.Size(128, 21);
+            this.Todas.TabIndex = 5;
+            this.Todas.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(86, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Nombre o Apellido:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(227, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ClinicaSePrice.Properties.Resources.icono_Medico;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(429, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 21);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Especialidad";
             // 
             // button1
             // 
@@ -200,49 +170,98 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label4
+            // textBox1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(429, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 21);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Especialidad";
+            this.textBox1.Location = new System.Drawing.Point(227, 37);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(136, 20);
+            this.textBox1.TabIndex = 2;
             // 
-            // Todas
+            // label3
             // 
-            this.Todas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.Todas.FormattingEnabled = true;
-            this.Todas.ItemHeight = 17;
-            this.Todas.Location = new System.Drawing.Point(432, 34);
-            this.Todas.Name = "Todas";
-            this.Todas.Size = new System.Drawing.Size(128, 21);
-            this.Todas.TabIndex = 5;
-            this.Todas.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(86, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(124, 17);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Nombre o Apellido:";
             // 
-            // label5
+            // label2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(524, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 21);
-            this.label5.TabIndex = 6;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(118, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(160, 21);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Busqueda Profesional";
             // 
-            // button2
+            // panel3
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(615, 147);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(146, 36);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "+ Nuevo Profesional";
-            this.button2.UseVisualStyleBackColor = false;
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(800, 60);
+            this.panel3.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ClinicaSePrice.Properties.Resources.icono_Medico;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(76, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Profesionales";
+            // 
+            // contenedorGrillaProfesionales
+            // 
+            this.contenedorGrillaProfesionales.Controls.Add(this.dgvProfesionales);
+            this.contenedorGrillaProfesionales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contenedorGrillaProfesionales.Location = new System.Drawing.Point(0, 229);
+            this.contenedorGrillaProfesionales.Name = "contenedorGrillaProfesionales";
+            this.contenedorGrillaProfesionales.Size = new System.Drawing.Size(800, 221);
+            this.contenedorGrillaProfesionales.TabIndex = 3;
+            // 
+            // dgvProfesionales
+            // 
+            this.dgvProfesionales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProfesionales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvProfesionales.Location = new System.Drawing.Point(0, 0);
+            this.dgvProfesionales.Name = "dgvProfesionales";
+            this.dgvProfesionales.Size = new System.Drawing.Size(800, 302);
+            this.dgvProfesionales.TabIndex = 1;
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaximizar.ForeColor = System.Drawing.Color.White;
+            this.btnMaximizar.Location = new System.Drawing.Point(716, -3);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(45, 30);
+            this.btnMaximizar.TabIndex = 3;
+            this.btnMaximizar.Text = "□";
+            this.btnMaximizar.UseVisualStyleBackColor = false;
+            this.btnMaximizar.Click += new System.EventHandler(this.button3_Click);
             // 
             // Profesionales
             // 
@@ -258,13 +277,13 @@
             this.Load += new System.EventHandler(this.Profesionales_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.contenedorGrillaProfesionales.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panelBusqueda.ResumeLayout(false);
             this.panelBusqueda.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contenedorGrillaProfesionales.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,5 +306,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMaximizar;
     }
 }

@@ -14,16 +14,16 @@ namespace ClinicaSePrice
         public Profesionales()
         {
             InitializeComponent();
+
+            btnMaximizar.Click += btnMaximizar_Click;
+
             EstiloTabla();
             dgvProfesionales.CellClick += dgvProfesionales_CellClick;
             dgvProfesionales.Dock = DockStyle.Fill;
             contenedorGrillaProfesionales.Dock = DockStyle.Fill;
             contenedorGrillaProfesionales.Padding = new Padding(15);
             contenedorGrillaProfesionales.BackColor = Color.White;
-
-
         }
-
         private void Profesionales_Load(object sender, EventArgs e)
         {
             MostrarProfesionales();
@@ -96,10 +96,23 @@ namespace ClinicaSePrice
             dgvProfesionales.RowTemplate.Height = 35;
             dgvProfesionales.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvProfesionales.BackgroundColor = Color.FromArgb(230, 240, 250); // Azul suave al seleccionar 
+            btnMaximizar.FlatStyle = FlatStyle.Flat;
+            btnMaximizar.FlatAppearance.BorderSize = 0;
         }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -160,5 +173,11 @@ namespace ClinicaSePrice
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+       
     }
 }
