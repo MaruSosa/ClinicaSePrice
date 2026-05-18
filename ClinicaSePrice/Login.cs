@@ -82,7 +82,6 @@ namespace ClinicaSePrice
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Click detectado");
             try
             {
                 string query = "SELECT * FROM usuarios WHERE usuario=@usuario AND password=@password";

@@ -611,6 +611,7 @@
             this.label2.Size = new System.Drawing.Size(123, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Turnos para hoy";
+            this.label2.Click += new System.EventHandler(this.label2_Click_2);
             // 
             // pictureBox1
             // 
