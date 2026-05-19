@@ -69,5 +69,13 @@ namespace ClinicaSePrice
             uc.BringToFront();
         
     }
+
+        private void btnVerTurnos_Click(object sender, EventArgs e)
+        {
+            UcVerTurnos uc = new UcVerTurnos();
+            panelContenido.Controls.Clear();
+            panelContenido.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
     }
 }
