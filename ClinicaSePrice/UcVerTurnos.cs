@@ -3,11 +3,15 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using static ClinicaSePrice.Login;
 
 namespace ClinicaSePrice
 {
     public partial class UcVerTurnos : UserControl
     {
+        string conexion =
+           "server=localhost;database=clinica_seprice;uid=root;pwd=root;";
+
         public UcVerTurnos()
         {
             InitializeComponent();
@@ -23,12 +27,11 @@ namespace ClinicaSePrice
             dgvVerTurnos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(30, 144, 255);
             dgvVerTurnos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvVerTurnos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-
             dgvVerTurnos.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dgvVerTurnos.DefaultCellStyle.SelectionBackColor = Color.LightSteelBlue;
             dgvVerTurnos.DefaultCellStyle.SelectionForeColor = Color.Black;
-
-            dgvVerTurnos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
+          
+            //dgvVerTurnos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
         }
 
         // ================= CARGAR TODO =================
@@ -70,7 +73,7 @@ namespace ClinicaSePrice
                     dgvVerTurnos.Columns["estado"].HeaderText = "Estado";
 
                     dgvVerTurnos.Refresh();
-                    PintarFilas();
+                   
                 }
                 catch (Exception ex)
                 {
@@ -111,12 +114,12 @@ namespace ClinicaSePrice
                     da.Fill(dt);
 
                     dgvVerTurnos.DataSource = dt;
-
+                    AgregarBotones();
                     if (dgvVerTurnos.Columns.Contains("id_turno"))
                         dgvVerTurnos.Columns["id_turno"].Visible = false;
 
                     dgvVerTurnos.Refresh();
-                    PintarFilas();
+                   
                 }
                 catch (Exception ex)
                 {
@@ -138,22 +141,153 @@ namespace ClinicaSePrice
         }
 
         // ================= COLORES POR ESTADO =================
-        private void PintarFilas()
+        private void AgregarBotones()
         {
-            foreach (DataGridViewRow row in dgvVerTurnos.Rows)
+            if (!dgvVerTurnos.Columns.Contains("Editar"))
             {
-                if (row.Cells["estado"].Value == null) continue;
+                DataGridViewButtonColumn btnEditar =
+                    new DataGridViewButtonColumn();
 
-                string estado = row.Cells["estado"].Value.ToString();
+                btnEditar.Name = "Editar";
+                btnEditar.HeaderText = "Editar";
+                btnEditar.Text = "✏️ Editar";
+                btnEditar.UseColumnTextForButtonValue = true;
+                btnEditar.DefaultCellStyle.BackColor = Color.Aquamarine;
+                btnEditar.DefaultCellStyle.ForeColor = Color.White;
+                btnEditar.DefaultCellStyle.Font =new Font("Segoe UI", 9, FontStyle.Bold);
+                btnEditar.FlatStyle = FlatStyle.Flat;
+                dgvVerTurnos.Columns.Add(btnEditar);
+            }
 
-                if (estado == "Confirmado")
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(198, 239, 206);
+            if (!dgvVerTurnos.Columns.Contains("Confirmar"))
+            {
+                DataGridViewButtonColumn btnConfirmar =
+                    new DataGridViewButtonColumn();
 
-                else if (estado == "Pendiente")
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 235, 156);
+                btnConfirmar.Name = "Confirmar";
+                btnConfirmar.HeaderText = "Confirmar";
+                btnConfirmar.Text = "✅ Confirmar";
+                btnConfirmar.UseColumnTextForButtonValue = true;
+                btnConfirmar.DefaultCellStyle.BackColor = Color.SeaGreen;
+                btnConfirmar.DefaultCellStyle.ForeColor = Color.White;
+                btnConfirmar.FlatStyle = FlatStyle.Flat;
 
-                else if (estado == "Cancelado")
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 199, 206);
+                dgvVerTurnos.Columns.Add(btnConfirmar);
+            }
+
+            if (!dgvVerTurnos.Columns.Contains("Eliminar"))
+            {
+                DataGridViewButtonColumn btnEliminar =
+                    new DataGridViewButtonColumn();
+
+                btnEliminar.Name = "Eliminar";
+                btnEliminar.HeaderText = "Eliminar";
+                btnEliminar.Text = "❌ Eliminar";
+                btnEliminar.UseColumnTextForButtonValue = true;
+                btnEliminar.DefaultCellStyle.BackColor = Color.IndianRed;
+                btnEliminar.DefaultCellStyle.ForeColor = Color.White;
+                btnEliminar.FlatStyle = FlatStyle.Flat;
+                dgvVerTurnos.Columns.Add(btnEliminar);
+            }
+        }
+
+        private void dgvVerTurnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+{
+                if (e.RowIndex < 0)
+                    return;
+                // BOTON CONFIRMAR
+                if (dgvVerTurnos.Columns[e.ColumnIndex].Name
+    == "Confirmar")
+                {
+                    int idTurno = Convert.ToInt32(
+                        dgvVerTurnos.Rows[e.RowIndex]
+                        .Cells["id_turno"].Value);
+
+                    ConfirmarTurno(idTurno);
+                }
+                // BOTON ELIMINAR
+                if (dgvVerTurnos.Columns[e.ColumnIndex].Name
+                    == "Eliminar")
+                {
+                    int idTurno = Convert.ToInt32(
+                        dgvVerTurnos.Rows[e.RowIndex]
+                        .Cells["id_turno"].Value);
+
+                    EliminarTurno(idTurno);
+                }
+            }
+        }
+            private void EliminarTurno(int idTurno)
+        {
+            DialogResult r = MessageBox.Show(
+                "¿Desea eliminar el turno?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (r == DialogResult.Yes)
+            {
+                using (MySqlConnection conn =
+                    new MySqlConnection(conexion))
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        string query =
+                            "DELETE FROM turnos WHERE id_turno=@id";
+
+                        MySqlCommand cmd =
+                            new MySqlCommand(query, conn);
+
+                        cmd.Parameters.AddWithValue("@id",
+                            idTurno);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show(
+                            "Turno eliminado");
+
+                        CargarTurnos();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(
+                            "Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+        private void ConfirmarTurno(int idTurno)
+        {
+            using (MySqlConnection conn =
+                new MySqlConnection(conexion))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string query =
+                        "UPDATE turnos SET estado='Confirmado' WHERE id_turno=@id";
+
+                    MySqlCommand cmd =
+                        new MySqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@id", idTurno);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show(
+                        "Turno confirmado");
+
+                    CargarTurnos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Error: " + ex.Message);
+                }
             }
         }
     }

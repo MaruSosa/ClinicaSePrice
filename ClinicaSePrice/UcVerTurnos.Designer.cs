@@ -33,14 +33,9 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lbSeleccionFecha = new System.Windows.Forms.Label();
             this.lbTurnos = new System.Windows.Forms.Label();
-            this.panelInferior = new System.Windows.Forms.Panel();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panelContenido = new System.Windows.Forms.Panel();
             this.dgvVerTurnos = new System.Windows.Forms.DataGridView();
             this.panelSuperior.SuspendLayout();
-            this.panelInferior.SuspendLayout();
             this.panelContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerTurnos)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +50,7 @@
             this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSuperior.Location = new System.Drawing.Point(0, 0);
             this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(550, 150);
+            this.panelSuperior.Size = new System.Drawing.Size(872, 150);
             this.panelSuperior.TabIndex = 0;
             // 
             // btnBuscar
@@ -104,67 +99,12 @@
             this.lbTurnos.Text = "Turnos";
             this.lbTurnos.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // panelInferior
-            // 
-            this.panelInferior.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panelInferior.Controls.Add(this.button3);
-            this.panelInferior.Controls.Add(this.btnConfirmar);
-            this.panelInferior.Controls.Add(this.btnEditar);
-            this.panelInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInferior.Location = new System.Drawing.Point(0, 5420);
-            this.panelInferior.Name = "panelInferior";
-            this.panelInferior.Size = new System.Drawing.Size(550, 80);
-            this.panelInferior.TabIndex = 2;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.Orange;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(180, 19);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 33);
-            this.btnEditar.TabIndex = 5;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnConfirmar.FlatAppearance.BorderSize = 0;
-            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(287, 19);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 33);
-            this.btnConfirmar.TabIndex = 6;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.Location = new System.Drawing.Point(393, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 33);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // panelContenido
             // 
             this.panelContenido.Controls.Add(this.dgvVerTurnos);
-            this.panelContenido.Location = new System.Drawing.Point(3, 156);
+            this.panelContenido.Location = new System.Drawing.Point(32, 166);
             this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(544, 500);
+            this.panelContenido.Size = new System.Drawing.Size(784, 500);
             this.panelContenido.TabIndex = 3;
             // 
             // dgvVerTurnos
@@ -174,27 +114,27 @@
             this.dgvVerTurnos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvVerTurnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvVerTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVerTurnos.Location = new System.Drawing.Point(0, 0);
+            this.dgvVerTurnos.EnableHeadersVisualStyles = false;
+            this.dgvVerTurnos.Location = new System.Drawing.Point(16, 29);
             this.dgvVerTurnos.MultiSelect = false;
             this.dgvVerTurnos.Name = "dgvVerTurnos";
             this.dgvVerTurnos.ReadOnly = true;
             this.dgvVerTurnos.RowHeadersVisible = false;
             this.dgvVerTurnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVerTurnos.Size = new System.Drawing.Size(541, 300);
+            this.dgvVerTurnos.Size = new System.Drawing.Size(700, 300);
             this.dgvVerTurnos.TabIndex = 2;
+            this.dgvVerTurnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVerTurnos_CellContentClick);
             // 
             // UcVerTurnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContenido);
-            this.Controls.Add(this.panelInferior);
             this.Controls.Add(this.panelSuperior);
             this.Name = "UcVerTurnos";
-            this.Size = new System.Drawing.Size(550, 5500);
+            this.Size = new System.Drawing.Size(872, 684);
             this.panelSuperior.ResumeLayout(false);
             this.panelSuperior.PerformLayout();
-            this.panelInferior.ResumeLayout(false);
             this.panelContenido.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerTurnos)).EndInit();
             this.ResumeLayout(false);
@@ -208,10 +148,6 @@
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label lbSeleccionFecha;
         private System.Windows.Forms.Label lbTurnos;
-        private System.Windows.Forms.Panel panelInferior;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Panel panelContenido;
         private System.Windows.Forms.DataGridView dgvVerTurnos;
     }
