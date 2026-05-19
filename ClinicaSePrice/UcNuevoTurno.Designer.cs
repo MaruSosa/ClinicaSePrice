@@ -109,6 +109,7 @@
             this.btnLimpiar.TabIndex = 14;
             this.btnLimpiar.Text = "Lmpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnVolver
             // 
@@ -123,6 +124,7 @@
             this.btnVolver.TabIndex = 13;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnGuardarTurno
             // 
@@ -176,6 +178,7 @@
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(109, 25);
             this.dtpFecha.TabIndex = 16;
+            this.dtpFecha.ValueChanged += new System.EventHandler(this.dtpFecha_ValueChanged);
             // 
             // cmbEstudio
             // 
@@ -194,6 +197,7 @@
             this.cmbProfesional.Name = "cmbProfesional";
             this.cmbProfesional.Size = new System.Drawing.Size(121, 25);
             this.cmbProfesional.TabIndex = 14;
+            this.cmbProfesional.SelectedIndexChanged += new System.EventHandler(this.cmbProfesional_SelectedIndexChanged);
             // 
             // btnBuscarDisponibilidad
             // 
